@@ -19,6 +19,11 @@ public class Comment {
     private String id;
     private String text = "";
     private String publishedBy = ""; //Ideally this should be an embedded User object
+    
+    
+    
+    private User user;
+    
     @Indexed
     private int rating = 0;
 
@@ -32,6 +37,16 @@ public class Comment {
 
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    
+    
     public String getId() {
         return id;
     }

@@ -1,4 +1,3 @@
-
 package com.jeveloper.beta.nosqlexperiment;
 
 import com.jeveloper.beta.nosqlexperiment.model.Comment;
@@ -13,14 +12,12 @@ import org.springframework.data.mongodb.repository.Query;
  * @author serge
  */
 public interface CommentRepository extends MongoRepository<Comment, String> {
-    
-    //To Be implemented
+
+ 
     @Query("{ user.nickname: ?0 }")
     List<Comment> findByTheUsersNickname(String nickname);
 
-    public List<Comment> getCommentsByAirid(long airlineid, Sort sort);
+    List<Comment> getCommentsBytext(String text, Sort sort);
 
-    public List<Comment> getCommentsByAirid(long airlineid, Pageable paging);
-    
-    
+    List<Comment> getCommentsBytext(String text, Pageable paging);
 }
